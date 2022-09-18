@@ -128,6 +128,51 @@ public class Nokia3310Driver {
                     } while (input != 99);
                     break;
 
+                case 5:
+                    do {
+                        System.out.println(phone.tonesMenu());
+                        input = scanner.nextInt();
+                    } while(input != 99);
+                    break;
+
+                case 6:
+                    do {
+                        System.out.println(phone.settingsMenu());
+                        input = scanner.nextInt();
+
+                        switch(input){
+                            case 1:
+                                do {
+                                    System.out.println(phone.settingsCallMenu());
+                                    input = scanner.nextInt();
+                                } while(input != 99);
+                                input = 0;
+                                break;
+                            case 2:
+                                do {
+                                    System.out.println(phone.settingsPhoneMenu());
+                                    input = scanner.nextInt();
+                                } while(input != 99);
+                                input = 0;
+                                break;
+                            case 3:
+                                do {
+                                    System.out.println(phone.settingsSecurityMenu());
+                                    input = scanner.nextInt();
+                                } while(input != 99);
+                                input = 0;
+                                break;
+                        }
+                    } while(input != 99);
+                    break;
+
+                case 11:
+                    do {
+                        System.out.println(phone.clockMenu());
+                        input = scanner.nextInt();
+                    } while (input != 99);
+                    break;
+
                 default:
                     break;
             }

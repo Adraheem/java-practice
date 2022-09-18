@@ -22,6 +22,11 @@ public class Nokia3310 {
                 "6 - Settings\n" +
                 "7 - Call divert\n" +
                 "8 - Games\n" +
+                "9 - Calculator\n" +
+                "10 - Reminders\n" +
+                "11 - Clock ⚜️\n" +
+                "12 - Profiles\n" +
+                "13 - SIM services" +
                 closeOrGoBack("close");
     }
 
@@ -183,6 +188,17 @@ public class Nokia3310 {
                 "4 - Closed user group\n" +
                 "5 - Phone security\n" +
                 "6 - Change access codes\n" +
+                closeOrGoBack("");
+    }
+
+    public String clockMenu(){
+        return generateHeader("CLOCK") +
+                "1 - Alarm clock\n" +
+                "2 - Clock settings\n" +
+                "3 - Date setting\n" +
+                "4 - Stopwatch\n" +
+                "5 - Countdown timer\n" +
+                "6 - Auto update of date and time\n" +
                 closeOrGoBack("");
     }
 }
