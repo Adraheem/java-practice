@@ -12,11 +12,10 @@ public class Nokia3310Driver {
         // main menu
         while(true){
             System.out.println(phone.mainMenu());
-            System.out.println(phone.closeOrGoBack("close"));
-
             input = scanner.nextInt();
 
             if(input == 99){
+                System.out.println("See you another time, BYE! \uD83D\uDC4B");
                 break;
             }
 
@@ -24,14 +23,12 @@ public class Nokia3310Driver {
                 case 1:
                     do {
                         System.out.println(phone.phoneBookMenu());
-                        System.out.println(phone.closeOrGoBack(""));
                         input = scanner.nextInt();
 
                         switch(input){
                             case 8:
                                 do {
                                     System.out.println(phone.phoneBookOptionsMenu());
-                                    System.out.println(phone.closeOrGoBack(""));
                                     input = scanner.nextInt();
                                 } while (input != 99);
                                 input = 0;
@@ -47,8 +44,41 @@ public class Nokia3310Driver {
                 case 2:
                     do {
                         System.out.println(phone.messagesMenu());
-                        System.out.println(phone.closeOrGoBack(""));
                         input = scanner.nextInt();
+
+                        switch(input){
+                            case 7:
+                                do {
+                                    System.out.println(phone.messageSettingsMenu());
+                                    input = scanner.nextInt();
+
+                                    switch (input){
+                                        case 1:
+                                            do {
+                                                System.out.println(phone.messageSettingsSetMenu());
+                                                input = scanner.nextInt();
+                                            } while(input != 99);
+                                            input = 0;
+                                            break;
+
+                                        case 2:
+                                            do {
+                                                System.out.println(phone.messageSettingsCommonMenu());
+                                                input = scanner.nextInt();
+                                            } while (input != 99);
+                                            input = 0;
+                                            break;
+
+                                        default:
+                                            break;
+                                    }
+                                } while(input != 99);
+                                input = 0;
+                                break;
+
+                            default:
+                                break;
+                        }
 
                     } while (input != 99);
                     break;
@@ -56,7 +86,6 @@ public class Nokia3310Driver {
                 case 3:
                     do {
                         System.out.println(phone.chatMenu());
-                        System.out.println(phone.closeOrGoBack(""));
                         input = scanner.nextInt();
 
                     } while (input != 99);
@@ -65,8 +94,36 @@ public class Nokia3310Driver {
                 case 4:
                     do {
                         System.out.println(phone.callRegisterMenu());
-                        System.out.println(phone.closeOrGoBack(""));
                         input = scanner.nextInt();
+
+                        switch(input){
+                            case 5:
+                                do {
+                                    System.out.println(phone.callRegisterDuration());
+                                    input = scanner.nextInt();
+                                } while(input != 99);
+                                input = 0;
+                                break;
+
+                            case 6:
+                                do {
+                                    System.out.println(phone.callRegisterCostsMenu());
+                                    input = scanner.nextInt();
+                                } while(input != 99);
+                                input = 0;
+                                break;
+
+                            case 7:
+                                do {
+                                    System.out.println(phone.callRegisterCostSettings());
+                                    input = scanner.nextInt();
+                                } while(input != 99);
+                                input = 0;
+                                break;
+
+                            default:
+                                break;
+                        }
 
                     } while (input != 99);
                     break;
