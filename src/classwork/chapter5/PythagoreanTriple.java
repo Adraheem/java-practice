@@ -1,7 +1,7 @@
 package classwork.chapter5;
 
 public class PythagoreanTriple {
-    private static final int limitingValue = 20;
+    private static final int limitingValue = 50;
 
     public static void main(String[] args) {
         System.out.printf("%5s%18s%20s%n", "Side1", "Side2", "Hypothenuse");
