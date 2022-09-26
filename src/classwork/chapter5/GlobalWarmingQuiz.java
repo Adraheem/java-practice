@@ -12,17 +12,20 @@ public class GlobalWarmingQuiz {
         String answer;
 
         for (int question = 1; question <= 5; question++) {
-            System.out.println("\n\n"+ "=".repeat(80));
+            System.out.println("\n\n"+ "=".repeat(60));
+            System.out.println("=".repeat(60));
             System.out.printf("Question %d:%n", question);
 
             switch (question) {
                 case 1 -> {
-                    System.out.println("What is Nigeria Independence Day?");
-                    System.out.println("A: October 1st, 1960");
-                    System.out.println("B: May 14, 1914");
-                    System.out.println("C: June 12, 1960");
-                    System.out.println("D: December 25, 2000");
-                    System.out.print("\nEnter your answer: ");
+                    System.out.println("""
+                            What is Nigeria Independence Day?
+                            A: October 1st, 1960
+                            B: May 14, 1914
+                            C: June 12, 1960
+                            D: December 25, 2000
+                            """);
+                    System.out.print("Enter your answer: ");
                     answer = input.nextLine();
                     if (answer.trim().equalsIgnoreCase("a")) {
                         correctAnswer++;
@@ -31,12 +34,14 @@ public class GlobalWarmingQuiz {
                     }
                 }
                 case 2 -> {
-                    System.out.println("Green is part of Nigeria color");
-                    System.out.println("A: No");
-                    System.out.println("B: Yes");
-                    System.out.println("C: Maybe");
-                    System.out.println("D: Not sure");
-                    System.out.print("\nEnter your answer: ");
+                    System.out.println("""
+                            Green is part of Nigeria color
+                            A: No
+                            B: Yes
+                            C: Maybe
+                            D: Not sure
+                            """);
+                    System.out.print("Enter your answer: ");
                     answer = input.nextLine();
                     if (answer.trim().equalsIgnoreCase("b")) {
                         correctAnswer++;
@@ -45,12 +50,14 @@ public class GlobalWarmingQuiz {
                     }
                 }
                 case 3 -> {
-                    System.out.println("White is part of Nigeria color");
-                    System.out.println("A: No");
-                    System.out.println("B: Yes");
-                    System.out.println("C: Maybe");
-                    System.out.println("D: Not sure");
-                    System.out.print("\nEnter your answer: ");
+                    System.out.println("""
+                            White is part of Nigeria color
+                            A: No
+                            B: Yes
+                            C: Maybe
+                            D: Not sure
+                            """);
+                    System.out.print("Enter your answer: ");
                     answer = input.nextLine();
                     if (answer.trim().equalsIgnoreCase("b")) {
                         correctAnswer++;
@@ -59,12 +66,14 @@ public class GlobalWarmingQuiz {
                     }
                 }
                 case 4 -> {
-                    System.out.println("How many states exist in Nigeria?");
-                    System.out.println("A: 20");
-                    System.out.println("B: 35");
-                    System.out.println("C: 36");
-                    System.out.println("D: Not sure");
-                    System.out.print("\nEnter your answer: ");
+                    System.out.println("""
+                            How many states exist in Nigeria?
+                            A: 20
+                            B: 35
+                            C: 36
+                            D: Not sure
+                            """);
+                    System.out.print("Enter your answer: ");
                     answer = input.nextLine();
                     if (answer.trim().equalsIgnoreCase("c")) {
                         correctAnswer++;
@@ -73,12 +82,14 @@ public class GlobalWarmingQuiz {
                     }
                 }
                 case 5 -> {
-                    System.out.println("What continent is Nigeria in?");
-                    System.out.println("A: Asia");
-                    System.out.println("B: Australia");
-                    System.out.println("C: America");
-                    System.out.println("D: Africa");
-                    System.out.print("\nEnter your answer: ");
+                    System.out.println("""
+                            What continent is Nigeria in?
+                            A: Asia
+                            B: Australia
+                            C: America
+                            D: Africa
+                            """);
+                    System.out.print("Enter your answer: ");
                     answer = input.nextLine();
                     if (answer.trim().equalsIgnoreCase("d")) {
                         correctAnswer++;
