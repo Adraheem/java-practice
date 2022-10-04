@@ -15,14 +15,17 @@ public class TimeTeller {
         int hour = Integer.parseInt(timeArray[0]) % 12;
         int minute = Integer.parseInt(timeArray[1]);
 
+        String hh = parseToText(hour);
+        String mm = parseToText(minute);
+
         if(minute == 0) {
-            return parseToText(hour) + " o'clock";
+            return hh + " o'clock";
         }
         else if (minute < 30){
-            return parseToText(minute) + " minutes after " + parseToText(hour);
+            return mm + " minutes after " + hh;
         }
         else if (minute == 30){
-            return "half past " + parseToText(hour);
+            return "half past " + hh;
         }
         else {
             int rem = 60 - minute;
@@ -31,7 +34,7 @@ public class TimeTeller {
     }
 
     private static String parseToText(int number){
-        String text = "";
+        String text;
         if(number == 0){
             text = parseTens(12);
         }
