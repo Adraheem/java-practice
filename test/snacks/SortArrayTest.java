@@ -35,4 +35,21 @@ class SortArrayTest {
         int[] shuffled = sortArray.shuffle(original);
         assertFalse(Arrays.equals(original, shuffled));
     }
+
+    @Test
+    void generateArrayTest(){
+        assertArrayEquals(new int[] {1,2,3,4,5,6,7,8,9,10}, sortArray.generateArray(10));
+    }
+
+    @Test
+    void arrayToStringTest(){
+        int[] original = {4,7,3,5,9,2,6,9};
+        assertEquals("4,7,3,5,9,2,6,9", sortArray.arrayToString(original));
+    }
+
+    @Test
+    void charArrayTest(){
+        char[] original = {'X', 'O', 'X'};
+        assertArrayEquals(original, sortArray.generateCharArray());
+    }
 }

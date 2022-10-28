@@ -54,4 +54,19 @@ public class SortArray {
 
         return array;
     }
+
+    public String arrayToString(int[] array) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < array.length; i++) {
+            stringBuilder.append(array[i]);
+            if (i != array.length - 1) {
+                stringBuilder.append(",");
+            }
+        }
+        return stringBuilder.toString();
+    }
+
+    public char[] generateCharArray() {
+        return new char[] {'X', 'O', 'X'};
+    }
 }
