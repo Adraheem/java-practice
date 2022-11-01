@@ -92,4 +92,9 @@ class ArrayAssignmentTest {
     void splitDigitTest(){
         assertArrayEquals(new int[] {2,3,4,2}, arrayAssignment.splitDigits(2342));
     }
+
+    @Test
+    void sumTwoLargestInArrayTest(){
+        assertEquals(24, arrayAssignment.sumTwoLargest(new int[] {6,2,5,8,10,6,14}));
+    }
 }

@@ -120,4 +120,30 @@ public class ArrayAssignment {
         }
         return digits;
     }
+
+    private int[] largestElementInArrayWithPosition(int[] numbers) {
+        int largestElement = numbers[0];
+        int index = 0;
+
+        for (int i = 0; i < numbers.length; i++) {
+            int number = numbers[i];
+            if (number > largestElement){
+                largestElement = number;
+                index = i;
+            }
+        }
+        return new int[] {largestElement, index};
+    }
+
+    public int sumTwoLargest(int[] numbers) {
+        int sum = 0;
+        int[] largest1 = largestElementInArrayWithPosition(numbers);
+        sum += largest1[0];
+        numbers[largest1[1]] = 0;
+
+        int[] largest2 = largestElementInArrayWithPosition(numbers);
+        sum += largest2[0];
+
+        return sum;
+    }
 }
