@@ -17,7 +17,7 @@ public class Student {
     public int getTotalScore(){
         int total = 0;
         for (StudentSubject studentSubject : studentSubjects) {
-            total += studentSubject.getScore();
+            total += studentSubject.score();
         }
         return total;
     }
@@ -40,6 +40,6 @@ public class Student {
     }
 
     public int getSubjectScore(Subject subject){
-        return studentSubjects[subject.getSubjectId() - 1].getScore();
+        return studentSubjects[subject.getSubjectId() - 1].score();
     }
 }

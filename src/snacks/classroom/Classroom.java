@@ -32,7 +32,7 @@ public class Classroom {
             report.append(String.format("%n%-20s", student.getName()));
 
             for (StudentSubject studentSubject : student.getSubjects()){
-                report.append(String.format("%-10d", studentSubject.getScore()));
+                report.append(String.format("%-10d", studentSubject.score()));
             }
 
             report.append(String.format("%-10d", student.getTotalScore()));
