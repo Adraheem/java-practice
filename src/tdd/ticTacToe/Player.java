@@ -5,9 +5,9 @@ import java.security.SecureRandom;
 public class Player {
     private final int id;
     private final String name;
-    private final String playerCharacter;
+    private final PlayerCharacter playerCharacter;
 
-    public Player(String name, String playerCharacter){
+    public Player(String name, PlayerCharacter playerCharacter){
         SecureRandom secureRandom = new SecureRandom();
 
         this.id = secureRandom.nextInt(999999);
@@ -23,7 +23,7 @@ public class Player {
         return name;
     }
 
-    public String getPlayerCharacter() {
+    public PlayerCharacter getPlayerCharacter() {
         return playerCharacter;
     }
 }

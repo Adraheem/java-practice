@@ -12,8 +12,8 @@ class TicTacToeTest {
 
     @BeforeEach
     void setup(){
-        player1 = new Player("John Doe", "X");
-        player2 = new Player("Jane", "O");
+        player1 = new Player("John Doe", PlayerCharacter.X);
+        player2 = new Player("Jane", PlayerCharacter.O);
 
         ticTacToe = new TicTacToe(player1, player2);
     }

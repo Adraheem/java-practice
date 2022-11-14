@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TicTacToe {
     private final Player player1;
     private final Player player2;
-    private final String[] playPositions;
+    private final Player[] playPositions;
     private Player winner;
     private int counter;
     private final int[][] winArrays = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8},{2,4,6}};
@@ -13,8 +13,9 @@ public class TicTacToe {
     public TicTacToe(Player player1, Player player2){
         this.player1 = player1;
         this.player2 = player2;
-        playPositions = new String[9];
-        Arrays.fill(playPositions, " ");
+        playPositions = new Player[9];
+        Player emptyPlayer = new Player("Empty", PlayerCharacter.E);
+        Arrays.fill(playPositions, emptyPlayer);
     }
 
     public String getGameDisplay(){
@@ -25,30 +26,29 @@ public class TicTacToe {
                 |  %s  |  %s  |  %s  |
                 ===================
                 """,
-                playPositions[0], playPositions[1], playPositions[2],
-                playPositions[3], playPositions[4], playPositions[5],
-                playPositions[6], playPositions[7], playPositions[8]);
+                getPlayerCharacter(0), getPlayerCharacter(1), getPlayerCharacter(2),
+                getPlayerCharacter(3), getPlayerCharacter(4), getPlayerCharacter(5),
+                getPlayerCharacter(6), getPlayerCharacter(7), getPlayerCharacter(8));
+    }
+
+    private String getPlayerCharacter(int index){
+        if (playPositions[index].getPlayerCharacter() == PlayerCharacter.E){
+            return " ";
+        } else {
+            return playPositions[index].getPlayerCharacter().toString();
+        }
     }
 
     public void setPlayPosition(int position, Player player){
         if (position < 1 || position > 9){
             throw new PlayPositionException("Invalid play position");
         }
-        else if (!playPositions[position - 1].equalsIgnoreCase(" ")){
+        else if (!(playPositions[position - 1].getPlayerCharacter() == PlayerCharacter.E)){
             throw new PlayPositionException();
         } else{
-            playPositions[position - 1] = player.getPlayerCharacter();
+            playPositions[position - 1] = player;
             counter++;
             checkForWinner();
-        }
-    }
-
-    private Player getPlayerFromPlay(String play){
-        if (play.equalsIgnoreCase(player1.getPlayerCharacter())){
-            return player1;
-        }
-        else{
-            return player2;
         }
     }
 
@@ -57,7 +57,7 @@ public class TicTacToe {
     }
 
     public boolean cannotPlayPosition(int position){
-        return !playPositions[position - 1].equalsIgnoreCase(" ");
+        return !(playPositions[position - 1].getPlayerCharacter() == PlayerCharacter.E);
     }
 
     public boolean isGameWon(){
@@ -68,10 +68,10 @@ public class TicTacToe {
         for(int[] winArray : winArrays){
             if (
                     cannotPlayPosition(winArray[0] + 1)
-                            && playPositions[winArray[0]].equalsIgnoreCase(playPositions[winArray[1]])
-                            && playPositions[winArray[1]].equalsIgnoreCase(playPositions[winArray[2]])
+                            && playPositions[winArray[0]].equals(playPositions[winArray[1]])
+                            && playPositions[winArray[1]].equals(playPositions[winArray[2]])
             ){
-                winner = getPlayerFromPlay(playPositions[winArray[0]]);
+                winner = playPositions[winArray[0]];
                 break;
             }
         }

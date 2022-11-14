@@ -10,11 +10,11 @@ public class TicTacToeDriver {
 
         System.out.print("Player 1, enter your name: ");
         String p1Name = input.nextLine();
-        Player player1 = new Player(p1Name, "X");
+        Player player1 = new Player(p1Name, PlayerCharacter.X);
 
         System.out.print("Player 2, enter your name: ");
         String p2Name = input.nextLine();
-        Player player2 = new Player(p2Name, "O");
+        Player player2 = new Player(p2Name, PlayerCharacter.O);
 
         int p1Score = 0;
         int p2Score = 0;
