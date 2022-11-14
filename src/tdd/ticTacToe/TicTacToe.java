@@ -31,9 +31,15 @@ public class TicTacToe {
     }
 
     public void setPlayPosition(int position, Player player){
-        if(position > 0 && position < 10){
+        if (position < 1 || position > 9){
+            throw new PlayPositionException("Invalid play position");
+        }
+        else if (!playPositions[position - 1].equalsIgnoreCase(" ")){
+            throw new PlayPositionException();
+        } else{
             playPositions[position - 1] = player.getPlayerCharacter();
             counter++;
+            checkForWinner();
         }
     }
 
@@ -41,11 +47,8 @@ public class TicTacToe {
         if (play.equalsIgnoreCase(player1.getPlayerCharacter())){
             return player1;
         }
-        else if (play.equalsIgnoreCase(player2.getPlayerCharacter())){
+        else{
             return player2;
-        }
-        else {
-            return null;
         }
     }
 
@@ -54,26 +57,24 @@ public class TicTacToe {
     }
 
     public boolean cannotPlayPosition(int position){
-        if (position < 1 || position > 9){
-            return true;
-        }
         return !playPositions[position - 1].equalsIgnoreCase(" ");
     }
 
-    private boolean isGameWon(){
-        boolean response = false;
+    public boolean isGameWon(){
+        return winner != null;
+    }
+
+    private void checkForWinner(){
         for(int[] winArray : winArrays){
             if (
                     cannotPlayPosition(winArray[0] + 1)
-                    && playPositions[winArray[0]].equalsIgnoreCase(playPositions[winArray[1]])
-                    && playPositions[winArray[1]].equalsIgnoreCase(playPositions[winArray[2]])
+                            && playPositions[winArray[0]].equalsIgnoreCase(playPositions[winArray[1]])
+                            && playPositions[winArray[1]].equalsIgnoreCase(playPositions[winArray[2]])
             ){
                 winner = getPlayerFromPlay(playPositions[winArray[0]]);
-                response = true;
                 break;
             }
         }
-        return response;
     }
 
     public Player getWinner(){
@@ -81,6 +82,9 @@ public class TicTacToe {
     }
 
     public String printResult(){
+        if (canPlay()){
+            return "Keep playing...";
+        }
         if (isGameWon()){
             return String.format("%s WON... Congratulations  \uD83C\uDF89 ", winner.getName());
         }

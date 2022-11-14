@@ -1,7 +1,6 @@
 package tdd.ticTacToe;
 
 import java.security.SecureRandom;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicTacToeDriver {
@@ -33,17 +32,12 @@ public class TicTacToeDriver {
                         System.out.printf("%s, choose a play position from 1 - 9: ", player1.getName());
                         int pos = Integer.parseInt(input.next());
 
-                        while (game.cannotPlayPosition(pos)) {
-                            System.out.println("Position already played, please play another position");
-                            System.out.printf("%s, choose a play position from 1 - 9: ", player1.getName());
-                            pos = input.nextInt();
-                        }
-
                         game.setPlayPosition(pos, player1);
                         nextPlayer = 1;
                     }
-                    catch(NumberFormatException e){
+                    catch(NumberFormatException | PlayPositionException e){
                         System.out.println("Invalid play position, try again!");
+                        System.out.println(e.getMessage());
                         continue;
                     }
                 } else {
@@ -51,17 +45,13 @@ public class TicTacToeDriver {
                         System.out.printf("%s, choose a play position from 1 - 9: ", player2.getName());
                         int pos = Integer.parseInt(input.next());
 
-                        while (game.cannotPlayPosition(pos)) {
-                            System.out.println("Position already played, please play another position");
-                            System.out.printf("%s, choose a play position from 1 - 9: ", player2.getName());
-                            pos = input.nextInt();
-                        }
-
                         game.setPlayPosition(pos, player2);
                         nextPlayer = 0;
                     }
-                    catch(NumberFormatException e){
+                    catch(NumberFormatException | PlayPositionException e){
                         System.out.println("Invalid play position, try again!");
+                        System.out.println(e.getMessage());
+                        continue;
                     }
                 }
 
