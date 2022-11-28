@@ -25,23 +25,23 @@ public class HugeIntegerTest {
 
     @Test
     void canCreateHugeIntegerWithStaticMethodTest() {
-        HugeInteger num1 = HugeInteger.valueOf("12345");
+        HugeInteger num1 = HugeInteger.parse("12345");
         assertEquals("12345", num1.toString());
     }
 
     @Test
     void canAddTwoHugeIntegersTest() {
-        HugeInteger num1 = HugeInteger.valueOf("4943");
-        HugeInteger num2 = HugeInteger.valueOf("3521");
+        HugeInteger num1 = HugeInteger.parse("4943");
+        HugeInteger num2 = HugeInteger.parse("3521");
 
-        assertEquals(HugeInteger.valueOf("8464"), num1.add(num2));
+        assertEquals(HugeInteger.parse("8464"), num1.add(num2));
     }
 
     @Test
     void canAddTwoHugeIntegersOfDifferentLengthsTest() {
-        HugeInteger num1 = HugeInteger.valueOf("494367853");
-        HugeInteger num2 = HugeInteger.valueOf("352166");
+        HugeInteger num1 = HugeInteger.parse("494367853");
+        HugeInteger num2 = HugeInteger.parse("352166");
 
-        assertEquals(HugeInteger.valueOf("494720019"), num1.add(num2));
+        assertEquals(HugeInteger.parse("494720019"), num1.add(num2));
     }
 }

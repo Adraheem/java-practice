@@ -7,6 +7,8 @@ public class HugeInteger {
     private int[] digits = new int[MAX_LIMIT];
     public final int length;
 
+//    CONSTRUCTORS *************************************************************************
+
     public HugeInteger(String number) {
         String[] digitString = this.trimZeros(number.replaceAll("\\D", "")).split("");
         length = digitString.length;
@@ -26,23 +28,17 @@ public class HugeInteger {
         this(String.valueOf(number));
     }
 
-    private String trimZeros(String string){
-        String value = string;
+//    FACTORY METHODS *************************************************************************
 
-        for (int i = 0; i < string.length(); i++){
-            if(value.charAt(0) == '0'){
-                value = value.substring(1);
-            } else {
-                break;
-            }
-        }
-
-        return value;
-    }
-
-    public static HugeInteger valueOf(String number){
+    public static HugeInteger parse(String number){
         return new HugeInteger(number);
     }
+
+    public static HugeInteger parse(int number){
+        return new HugeInteger(number);
+    }
+
+//    OVERRIDDEN METHODS *************************************************************************
 
     @Override
     public String toString() {
@@ -62,6 +58,24 @@ public class HugeInteger {
         HugeInteger num2 = (HugeInteger) obj;
         return Arrays.equals(this.digits, num2.digits);
     }
+
+//    PRIVATE METHODS *************************************************************************
+
+    private String trimZeros(String string){
+        String value = string;
+
+        for (int i = 0; i < string.length(); i++){
+            if(value.charAt(0) == '0'){
+                value = value.substring(1);
+            } else {
+                break;
+            }
+        }
+
+        return value;
+    }
+
+//    PUBLIC METHODS *************************************************************************
 
     public HugeInteger add(HugeInteger num2) {
         int remainder = 0;
