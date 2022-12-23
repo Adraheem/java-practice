@@ -24,7 +24,10 @@ class MyArrayListTest {
         myArrayList.remove(0);
 
         System.out.println(myArrayList);
-        assertEquals(2, myArrayList.size());
+
+        myArrayList.add(67);
+        System.out.println(myArrayList);
+        assertEquals(3, myArrayList.size());
     }
 
 }
